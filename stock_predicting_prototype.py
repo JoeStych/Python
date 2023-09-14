@@ -1,72 +1,23 @@
-##@mainpage Stock predicting prototype
+##Stock predicting prototype
 #Written by Joseph Steichen
 #a stock predictor prototype that uses machine learning algorithms to predict stock market trends
 #
-#@author Joseph Steichen
-#@date April 27, 2023
+#date April 27, 2023
 
 from sklearn.linear_model import LogisticRegression
-
-##@class LogisticRegression
-#@brief Class for the logistic regression machine learning algorithm.
-
-##@class emptyclass
-#@brief this is empty
-
 from sklearn.model_selection import train_test_split, RandomizedSearchCV
-
-##@class RandomizedSearchCV
-#@brief Class used for the Random Forest Classifier Optimization Program
-#@details This class is used for the RFC optimizer. It creates numerous random forests and check which one has the best parameters
-
-##@brief Splits the data into 4 arrays. 2 are used for training and 2 for testing.
-#@param X independent variables
-#@param Y dependent variable
-#@param test_size how much fo thed data is to be used for testing
-#@param random_state the seed for the random number generator
-
 from sklearn.metrics import f1_score, accuracy_score
-
-##@brief Takes the array of predicted values and compares with array of actual values to determine an f1 score.
-#@param y_true the true y variable values
-#@param y_pred the predicted y variable values
-#@return f1 score for model
-
-##@brief Determines the accuracy of a model
-#@param y_true the true values of the y variable
-#@param y_pred the predicted values of the y variable
-#@return the percentage of correct predictions
-
-
 from sklearn.ensemble import RandomForestClassifier
-
-##@class RandomForestClassifer
-#@brief The class for the random forest classifier machine learning algorithm.
-#@details This class can be used to predict a y variable based on x variables.
-
 from sklearn.naive_bayes import BernoulliNB
-
-##@class BernoulliNB
-#@brief The class for the Bernoulli Naive Bayesian machine learning model
-#@details This class can be used to predict a binary y variable based on x variables.
 
 import numpy as np
 
-##@class numpy
-#@brief This class is a special kind of array with more advanced formatting options than the default python lists.
-
 import pandas as pd
 
-##@class pandas
-#@brief This class is a special kind of array with more advanced formatting optiosn than the default python lists.
-
 from datetime import datetime as dt
+
 import yfinance as yf
 from ta import add_all_ta_features
-
-##@brief This function calculates technical indicators based on arrays of market data.
-#@param df The array to calculate data on.
-#@returns a dictionary with the calculated techinical indicators.
 
 import os
 
@@ -136,6 +87,7 @@ while True:
             print("Gathering data for ", stock, "...", sep='')
             data = yf.download(stock, start=start_date, end=end_date)
             data = add_all_ta_features(data, open="Open", high="High", low="Low", close="Close", volume="Volume")
+            
             with open(PATH + stock +"data.txt", "w") as f:
                 for index, row in data.iterrows():
                     #Date, open, close, and volume
