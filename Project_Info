@@ -1,0 +1,17 @@
+This file contains information about the projects in the Python Repository.
+
+--Acirema Text Based Adventure.py
+This is just a file for a text based adventure game I work on between projects to maintain proficiency in Python.
+
+--Python_Sorting.py
+Python sorting algorithms contained in a file for convenience.
+
+--QueueAndStack_class.py
+Queue and stack classes in a Python file for convenience.
+
+--stock_predicting_prototype.py
+This was my senior design project. It datamines stock price data and uses that along with google trend data to make predictions about future stock market changes.
+This program uses a few machine learning algorithms.
+
+--weatherapp_keyredacted.py
+This was a project I developed in my free time to learn how APIs work. The weather API key is redacted so nobody else gets access to my account.
